@@ -1,0 +1,37 @@
+#!/bin/bash
+
+while getopts n:s: flag
+do
+    case "${flag}" in
+        n) name=${OPTARG};;
+        s) store=${OPTARG};;
+    esac
+done
+
+formattedStoreName=$(echo ${store} | sed -r 's/(^|_)([a-z])/\U\2/g')
+echo $formattedStoreName
+
+echo "
+import Vue from 'vue'
+
+const mixins={
+	computed:{
+		all${formattedStoreName}Data(){
+			return this.\$store.getters["${store}/getAllData"]
+			
+		},
+		all${formattedStoreName}List(){
+			return this.\$store.getters["${store}/getAllList"];
+		},
+		${store}TotalPages(){
+			return this.\$store.getters["${store}/getTotalPages"];
+		},	
+
+	}
+}
+
+Vue.mixin(mixins);
+
+" >> "plugins/mixins/${name}.js"
+echo "done!";
+

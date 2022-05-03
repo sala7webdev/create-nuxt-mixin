@@ -1,0 +1,24 @@
+{
+  "name": "create-nuxt-mixin",
+  "version": "1.0.0",
+  "description": "simple bash script to create a nuxt mixin that uses a vuex store",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sala7webdev/create-nuxt-mixin.git"
+  },
+  "keywords": [
+    "nuxt",
+    "vuex",
+    "vue"
+  ],
+  "author": "Mohamed Salah",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/sala7webdev/create-nuxt-mixin/issues"
+  },
+  "homepage": "https://github.com/sala7webdev/create-nuxt-mixin#readme"
+}
