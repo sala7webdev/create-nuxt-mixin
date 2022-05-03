@@ -1,5 +1,12 @@
 #!/bin/bash
 
+if [ ! -d "./pulgins/mixins" ]
+then
+    echo "pulgins/mixins folder DOES NOT exists." && exit 10 
+fi
+
+
+
 while getopts n:s: flag
 do
     case "${flag}" in
@@ -7,6 +14,17 @@ do
         s) store=${OPTARG};;
     esac
 done
+
+if [ -z "$name" ]
+then
+    echo "mixins name is required" && exit 5
+fi
+
+if [ -z "$store" ]
+then
+    echo "store name is required" && exit 5
+fi
+
 
 formattedStoreName=$(echo ${store} | sed -r 's/(^|_)([a-z])/\U\2/g')
 echo $formattedStoreName
